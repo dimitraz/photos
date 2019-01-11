@@ -1,0 +1,173 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="grid.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Lab Mono";
+        }
+    
+        .container {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            /* or inline-flex */
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 35px;
+        }
+    
+        .start {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            /* or inline-flex */
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-size: 35px;
+        }
+    
+        .start .item {
+            padding: 1em;
+        }
+    
+        .prev,
+        .next {
+            font-size: 50px;
+            color: #000;
+            cursor: pointer;
+        }
+    
+        img {
+            max-width: 100%;
+        }
+    
+        .control {
+            background: #ff0;
+            position: absolute;
+            top: 0;
+            z-index: 1000;
+        }
+    
+        .grid img {
+            padding: 1em 1em 0 1em;
+        }
+    
+        .text {
+            padding: 3em;
+        }
+    </style>
+  </head>
+<body>
+
+    <!-- Control buttons -->
+    <div class="control">
+        <div class="item prev">&LeftArrow;</div>
+        <div class="item next">&RightArrow;</div>
+    </div>
+
+    <!-- Image slider -->
+    <div class="siema" style="height: auto">
+        <!-- Intro -->
+        <div style="background-color: white; color: black; background-position: top center; background-size: cover; height: 100%;">
+            <div class="container" style="color: black">Some photos</div>
+        </div>
+
+        <!-- Polaroids -->
+        <div style="background-image: url(images/polaroids/bg.png); background-position: center center; background-size: cover; height:
+                            100%;">
+            <div class="container">Polaroids</div>
+        </div>
+
+        <div>
+            <div class="text">
+                Polaroids <br />
+                2018
+            </div>
+
+            <div class="grid">
+                <div class="grid__col grid__col--2-of-6" style="margin-top: 50px; margin-left: 50px;">
+                    <img src="images/polaroids/5.png" alt="" />
+                </div>
+                <div class="grid__col grid__col--1-of-3 grid__col--push-1-of-12">
+                    <img src="images/polaroids/time_capsule.jpeg" alt="" />
+                </div>
+                <div class="grid__col grid__col--3-of-6 grid__col--push-2-of-12" style="margin-top: 50px; padding-bottom: 3em">
+                    <img src="images/polaroids/1.png" alt="" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Morocco -->
+        <div style="background-image: url(images/morocco/4.jpg); background-position: center center; background-size: cover; height: 100%;">
+            <div class="container">Morocco</div>
+        </div>
+
+        <div>
+            <div class="text">
+                Marrakesh and the Atlas Mountains <br />
+                October 2014
+            </div>
+            <div class="grid">
+                <div class="grid__col grid__col--1-of-2 grid__col--push-1-of-12">
+                    <img src="images/morocco/14.jpg" alt="" />
+                </div>
+                <div class="grid__col grid__col--1-of-4" style="margin-top: 50px; margin-left: 50px;">
+                    <img src="images/morocco/13.jpg" alt="" />
+                </div>
+                <div class="grid__col grid__col--4-of-6 grid__col--push-2-of-12" style="margin-top: 50px; padding-bottom: 3em">
+                    <img src="images/morocco/0.jpg" alt="" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Misc -->
+        <div style="background-image: url(images/memories/0.jpg); background-position: center center; background-size: cover; height: 100%;">
+            <div class="container">Memories</div>
+        </div>
+
+        <div>
+            <div class="text">
+                Memories <br />
+                Arese, Milan, Waterford, Linz <br />
+                From 2015 to 2018
+            </div>
+            <div class="grid">
+                <div class="grid__col grid__col--3-of-6" style="margin-top: 50px; margin-left: 50px;">
+                    <img src="images/memories/1.jpg" alt="" />
+                </div>
+                <div class="grid__col grid__col--1-of-3">
+                    <img src="images/memories/5.jpg" alt="" />
+                </div>
+                <div class="grid__col grid__col--4-of-6 grid__col--push-2-of-12" style="margin-top: 50px; padding-bottom: 3em">
+                    <img src="images/memories/4.jpg" alt="" />
+                </div>
+
+                <div class="grid__col grid__col--1-of-2 grid__col--push-1-of-12" style=" margin-bottom: 4em">
+                    <img src="images/memories/7.jpg" alt="" />
+                </div>
+                <div class="grid__col grid__col--1-of-4" style="margin-top: 50px; margin-left: 50px">
+                    <img src="images/memories/6.jpg" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Siema -->
+    <script src="siema.min.js"></script>
+    <script>
+        var mySiema = new Siema({
+            loop: true
+        });
+        document.querySelector('.prev').addEventListener('click', () => mySiema.prev());
+        document.querySelector('.next').addEventListener('click', () => mySiema.next());
+    </script>
+</body>
+</html>
