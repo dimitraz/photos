@@ -17,13 +17,12 @@
     <!-- Image slider -->
     <div class="siema">
         <!-- Intro -->
-        <div style="background-color: white; color: black; background-position: top center; background-size: cover; height: 100%;">
+        <div class="white cover" style="background-position: top center;">
             <div class="container" style="color: black">Some photos</div>
         </div>
 
         <!-- Polaroids -->
-        <div style="background-image: url(images/polaroids/bg.png); background-position: center center; background-size: cover; height:
-                            100%;">
+        <div class="black cover" style="background-image: url(images/polaroids/bg.png);">
             <div class="container">Polaroids</div>
         </div>
 
@@ -47,7 +46,7 @@
         </div>
 
         <!-- Morocco -->
-        <div style="background-image: url(images/morocco/4.jpg); background-position: center center; background-size: cover; height: 100%;">
+        <div class="black cover" style="background-image: url(images/morocco/4.jpg);">
             <div class="container">Morocco</div>
         </div>
 
@@ -70,7 +69,7 @@
         </div>
 
         <!-- Misc -->
-        <div style="background-image: url(images/memories/0.jpg); background-position: center center; background-size: cover; height: 100%;">
+        <div class="black cover" style="background-image: url(images/memories/0.jpg);">
             <div class="container">Memories</div>
         </div>
 
@@ -107,6 +106,14 @@
         function getHeight() {
             var maxHeight = this.innerElements[this.currentSlide].clientHeight
             document.querySelector('.siema').style.maxHeight = maxHeight + 'px';
+
+            if (this.innerElements[this.currentSlide].className.includes("black")) {
+                document.querySelector('.prev').style.color = "#fff";
+                document.querySelector('.next').style.color = "#fff";
+            } else {
+                document.querySelector('.prev').style.color = "#000";
+                document.querySelector('.next').style.color = "#000";
+            }
         }
 
         var siema = new Siema({
